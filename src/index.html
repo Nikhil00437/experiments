@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clean Kitchen - Recipe Finder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🍳 Clean Kitchen</h1>
+            <p class="subtitle">Find recipes from what you have</p>
+        </header>
+
+        <!-- Pantry Entry Section -->
+        <section class="pantry-section">
+            <h2>What's in your kitchen?</h2>
+            
+            <!-- Category Grid -->
+            <div class="category-grid">
+                <button class="category-btn" data-category="vegetables">🥬 Vegetables</button>
+                <button class="category-btn" data-category="dairy">🥛 Dairy</button>
+                <button class="category-btn" data-category="proteins">🍗 Proteins</button>
+                <button class="category-btn" data-category="carbs">🍞 Carbs</button>
+                <button class="category-btn" data-category="fruits">🍎 Fruits</button>
+                <button class="category-btn" data-category="spices">🧂 Spices</button>
+            </div>
+
+            <!-- Quick Add Tags (hidden by default) -->
+            <div class="quick-add-container" id="quickAddContainer">
+                <div class="quick-add-header">
+                    <h3 id="selectedCategory">Select items</h3>
+                    <button class="close-btn" id="closeQuickAdd">&times;</button>
+                </div>
+                <div class="tags-grid" id="tagsGrid"></div>
+            </div>
+
+            <!-- Custom Input -->
+            <div class="custom-input-section">
+                <input type="text" id="customIngredient" placeholder="Add custom ingredient..." />
+                <button class="add-btn" id="addCustomBtn">+</button>
+            </div>
+        </section>
+
+        <!-- Current Pantry List -->
+        <section class="pantry-list-section">
+            <h2>Your Pantry (<span id="pantryCount">0</span>)</h2>
+            <div class="pantry-items" id="pantryItems"></div>
+            
+            <!-- Priority Toggle -->
+            <div class="priority-section">
+                <label class="priority-toggle">
+                    <input type="checkbox" id="priorityMode" />
+                    <span class="toggle-slider"></span>
+                    <span class="toggle-label">Mark next item as "Expiring Soon"</span>
+                </label>
+            </div>
+        </section>
+
+        <!-- Action Button -->
+        <section class="action-section">
+            <button class="forage-btn" id="forageBtn">🔍 Forage! Find Recipes</button>
+            <button class="clear-btn" id="clearBtn">Clear All</button>
+        </section>
+
+        <!-- Loading Indicator -->
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Finding recipes...</p>
+        </div>
+
+        <!-- Recipe Results -->
+        <section class="recipes-section" id="recipesSection">
+            <h2>Found Recipes</h2>
+            <div class="recipe-cards" id="recipeCards"></div>
+        </section>
+
+        <!-- Recipe Modal -->
+        <div class="modal" id="recipeModal">
+            <div class="modal-content">
+                <button class="modal-close" id="modalClose">&times;</button>
+                <div id="modalBody"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
